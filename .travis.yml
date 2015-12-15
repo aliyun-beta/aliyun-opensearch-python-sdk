@@ -6,4 +6,4 @@ install:
   - pip install pytest-cov
   - pip install python-coveralls
 script:
-  - py.test test/ --cov-report=term-missing --cov=opensearch 
+  - py.test test/ --cov-report=term-missing --cov=opensearch
