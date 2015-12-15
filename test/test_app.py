@@ -12,7 +12,6 @@ def test_create():
     ret = indexApp.create(index_name, 'tpl_test')
     print(ret)
     assert ret['status'] == 'OK'
-    time.sleep(2)
 
 
 def test_get_all():

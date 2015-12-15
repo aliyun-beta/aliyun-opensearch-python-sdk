@@ -17,7 +17,6 @@ def test_push_add():
     status = indexDoc.pushCSVFile('add', './test/test.csv', table_name, 0, 'id', multi_fields=['catalog_id'])
     print(status)
     assert status == 'OK'
-    time.sleep(1)
 
 
 def test_push_add2():
@@ -26,7 +25,6 @@ def test_push_add2():
     status = indexDoc.pushCSVFile('add', './test/test2.csv', table_name, 0, 'id', multi_fields=['catalog_id'], max_size=100)
     print(status)
     assert status == 'OK'
-    time.sleep(1)
 
 
 def test_push_update():
@@ -35,7 +33,6 @@ def test_push_update():
     status = indexDoc.pushCSVFile('update', './test/test.csv', table_name, 0, 'id', multi_fields=['catalog_id'])
     print(status)
     assert status == 'OK'
-    time.sleep(1)
 
 
 def test_push_update2():
@@ -44,7 +41,6 @@ def test_push_update2():
     status = indexDoc.pushCSVFile('update', './test/test2.csv', table_name, 0, 'id', multi_fields=['catalog_id'], max_size=100)
     print(status)
     assert status == 'OK'
-    time.sleep(1)
 
 
 def test_deletes():
@@ -52,4 +48,3 @@ def test_deletes():
     indexDoc = IndexDoc(client, index_name)
     ret = indexDoc.delete([100, 101, 102, 103, 200, 201, 202, 203], table_name)
     assert ret['status'] == 'OK'
-    time.sleep(1)

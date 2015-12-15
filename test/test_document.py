@@ -15,7 +15,6 @@ def test_app_create():
     indexApp = IndexApp(client)
     ret = indexApp.create(index_name, 'tpl_test')
     assert ret['status'] == 'OK'
-    time.sleep(1)
 
 
 def test_add():
@@ -25,7 +24,6 @@ def test_add():
            u"这是一个测试标题 OpenSearch", "updated": 1439514278, "created": 1439514278}
     ret = indexDoc.add(doc, table_name)
     assert ret['status'] == 'OK'
-    time.sleep(1)
 
 
 def test_adds():
@@ -55,7 +53,6 @@ def test_adds():
 
     ret = indexDoc.add(docs, table_name)
     assert ret['status'] == 'OK'
-    time.sleep(1)
 
 
 def test_get():
@@ -73,7 +70,6 @@ def test_update():
         "id": doc_id, "title": "这是一个测试标题的[修改]", "text": "这是一个测试标题的修改 OpenSearch"}
     ret = indexDoc.add(doc, table_name)
     assert ret['status'] == 'OK'
-    time.sleep(1)
 
 
 def test_after_update_get():
@@ -89,7 +85,6 @@ def test_delete():
     indexDoc = IndexDoc(client, index_name)
     ret = indexDoc.delete(doc_id, table_name)
     assert ret['status'] == 'OK'
-    time.sleep(1)
 
 
 def test_deletes():
@@ -97,7 +92,6 @@ def test_deletes():
     indexDoc = IndexDoc(client, index_name)
     ret = indexDoc.delete([2, 3], table_name)
     assert ret['status'] == 'OK'
-    time.sleep(1)
 
 
 def test_app_delete():
