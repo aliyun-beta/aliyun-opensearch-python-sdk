@@ -1,5 +1,7 @@
 # Aliyun OpenSearch
 
+[![Build Status](https://travis-ci.org/aliyun-beta/aliyun-opensearch-python-sdk.svg?branch=master)](https://travis-ci.org/aliyun-beta/aliyun-opensearch-python-sdk)
+
 this is a Aliyun opensearch python SDK library. 
 
 ## Installation

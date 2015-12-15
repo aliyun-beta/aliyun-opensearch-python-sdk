@@ -3,7 +3,7 @@
 import time
 from opensearch import Client
 from opensearch import IndexApp
-from config import app_key, app_secret, base_url, index_name, client_name
+from .config import app_key, app_secret, base_url, index_name, client_name
 
 
 def test_create():

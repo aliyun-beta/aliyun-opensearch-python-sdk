@@ -4,7 +4,7 @@ import time
 from opensearch import Client
 from opensearch import IndexApp
 from opensearch import IndexDoc
-from config import app_key, app_secret, base_url, index_name, client_name
+from .config import app_key, app_secret, base_url, index_name, client_name
 
 doc_id = 1
 table_name = 'main'
