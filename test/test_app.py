@@ -3,7 +3,7 @@
 import time
 from opensearch import Client
 from opensearch import IndexApp
-from .config import app_key, app_secret, base_url, index_name, client_name
+from config import app_key, app_secret, base_url, index_name, client_name
 
 
 def test_create():
@@ -12,6 +12,7 @@ def test_create():
     ret = indexApp.create(index_name, 'tpl_test')
     print(ret)
     assert ret['status'] == 'OK'
+    time.sleep(2)
 
 
 def test_get_all():
