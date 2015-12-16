@@ -4,4 +4,4 @@ python:
 install:
   - pip install pytest
 script:
-  - py.test travisci.py
+  - py.test test/travisci.py
