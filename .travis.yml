@@ -3,6 +3,5 @@ python:
   - "2.7"
 install:
   - pip install pytest
-  - pip install pytest-cov
 script:
-  - py.test run_test.py --cov-report=term-missing --cov=opensearch
+  - py.test travisci.py
