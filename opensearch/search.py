@@ -20,7 +20,7 @@ class Search(object):
         self.indexes = []
         self.qp = None
         self.disable = None
-        self.summary = None
+        self.summaries = []
         self.fetch_fields = None
         self.formula_name = None
         self.first_formula_name = None
@@ -99,20 +99,21 @@ class Search(object):
         """
         if not field_name:
             return
-        self.summary = {}
-        self.summary['summary_field'] = field_name
+        _summary = {}
+        _summary['summary_field'] = field_name
         if length:
-            self.summary['summary_len'] = str(length)
+            _summary['summary_len'] = str(length)
         if element:
-            self.summary['summary_element'] = element
+            _summary['summary_element'] = element
         if ellipsis:
-            self.summary['summary_ellipsis'] = ellipsis
+            _summary['summary_ellipsis'] = ellipsis
         if snipped:
-            self.summary['summary_snipped'] = snipped
+            _summary['summary_snipped'] = snipped
         if element_prefix:
-            self.summary['summary_element_prefix'] = element_prefix
+            _summary['summary_element_prefix'] = element_prefix
         if element_postfix:
-            self.summary['summary_element_postfix'] = element_postfix
+            _summary['summary_element_postfix'] = element_postfix
+        self.summaries.append(_summary)
 
     def addFilter(self, expr_filter, operator='AND'):
         if not self.filter:
@@ -208,11 +209,14 @@ class Search(object):
         if self.disable:
             params['disable'] = self.disable
 
-        if self.summary:
-            _summary = []
-            for key, val in self.summary.items():
-                _summary.append('%s:%s' % (key, val))
-            params['summary'] = ';'.join(_summary)
+        if self.summaries:
+            _summaries = []
+            for summary in self.summaries:
+                _summary = []
+                for key, val in summary.items():
+                    _summary.append('%s:%s' % (key, val))
+                _summaries.append(','.join(_summary))
+            params['summary'] = ';'.join(_summaries)
 
         if self.fetch_fields:
             params['fetch_fields'] = ';'.join(self.fetch_fields)
@@ -256,11 +260,14 @@ class Search(object):
         if self.disable:
             params['disable'] = self.disable
 
-        if self.summary:
-            _summary = []
-            for key, val in self.summary.items():
-                _summary.append('%s:%s' % (key, val))
-            params['summary'] = ';'.join(_summary)
+        if self.summaries:
+            _summaries = []
+            for summary in self.summaries:
+                _summary = []
+                for key, val in summary.items():
+                    _summary.append('%s:%s' % (key, val))
+                _summaries.append(','.join(_summary))
+            params['summary'] = ';'.join(_summaries)
 
         if self.fetch_fields:
             params['fetch_fields'] = ';'.join(self.fetch_fields)
